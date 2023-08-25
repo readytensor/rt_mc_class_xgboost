@@ -49,7 +49,6 @@ def create_predictions_dataframe(
             "Length of class names does not match number of prediction columns"
         )
     predictions_df = pd.DataFrame(predictions_arr, columns=class_names)
-    predictions_df[class_names] = 1/len(class_names)
     if len(predictions_arr) != len(ids):
         raise ValueError("Length of ids does not match number of predictions")
     predictions_df.insert(0, id_field_name, ids)
